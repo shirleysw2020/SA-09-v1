@@ -9,20 +9,17 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/public')));
 
-// const dontUseMe = () => throw new Error('implement controllers');
 
+// app.get('/attendees', db.getAll);
 app.get('/attendees', (req, res) => {
-  console.log(db.getAll())
-  db.getAll({}, (err, dataInfo) => {
-    console.log('at least made our way to db')
+  db.getAll((err, dataInfo) => {
     if (err) {
       console.log('server failed to get data');
-      callback(err, null);
     } else {
-      consoel.log('server got data!');
+      console.log('server got data!');
       res.status(200).send(dataInfo)
     }
-  })
+  });
 });
 
 // app.post('/attendees', (req, res) => {
