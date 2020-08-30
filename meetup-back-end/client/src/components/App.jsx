@@ -23,6 +23,7 @@ class App extends React.Component {
   getAttendees() {
     axios.get('/attendees')
       .then(res => {
+        console.log('client got data: ', res.body)
         this.setState({
           attendees: res.data,
         });
