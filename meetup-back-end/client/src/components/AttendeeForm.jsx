@@ -3,25 +3,6 @@ import React from 'react';
 class AttendeeForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      firstName: '',
-      lastName: '',
-      email: '',
-      shirt: 'XS', // default
-      skillLevel: 'beginner', // default
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitForm = this.submitForm.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({
-      [event.target.id]: event.target.value,
-    });
-  }
-
-  submitForm() {
-    this.props.addAttendee(this.state);
   }
 
   render() {
@@ -29,13 +10,13 @@ class AttendeeForm extends React.Component {
       <div className="attendee-form">
         <h2>Register Attendee</h2>
         <label>First Name: </label>
-        <input type="text" id="firstName" onChange={this.handleChange}></input>
+        <input type="text" id="firstName" onChange={this.props.handleChange}></input>
         <label>Last Name: </label>
-        <input type="text" id="lastName" onChange={this.handleChange}></input>
+        <input type="text" id="lastName" onChange={this.props.handleChange}></input>
         <label>Email: </label>
-        <input type="email" id="email" onChange={this.handleChange}></input>
+        <input type="email" id="email" onChange={this.props.handleChange}></input>
         <label>Shirt Size:</label>
-        <select onChange={this.handleChange} id="shirt" >
+        <select onChange={this.props.handleChange} id="shirt" >
           <option value="XS">XS</option>
           <option value="S">S</option>
           <option value="M">M</option>
@@ -44,12 +25,12 @@ class AttendeeForm extends React.Component {
           <option value="XXL">XXL</option>
         </select>
         <label>Skill Level:</label>
-        <select onChange={this.handleChange} id="skillLevel" >
+        <select onChange={this.props.handleChange} id="skillLevel" >
           <option value="beginner">beginner</option>
           <option value="intermediate">intermediate</option>
           <option value="expert">expert</option>
         </select>
-        <button onClick={this.submitForm}>REGISTER</button>
+        <button onClick={this.props.submitForm}>REGISTER</button>
       </div>
     );
   }
