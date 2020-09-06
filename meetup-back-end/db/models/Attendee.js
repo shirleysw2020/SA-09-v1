@@ -6,8 +6,14 @@ const attendeeSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
-  shirt: String,
-  skillLevel: String
+  shirt: {
+    type: String,
+    enum: ['XS', 'S', 'M', 'L', 'XL', 'XL'];
+  }
+  skillLevel: {
+    type: String,
+    enum: ['beginner', 'intermediate', 'expert'];
+  }
 });
 
 const Attendee = mongoose.model('Attendee', attendeeSchema);

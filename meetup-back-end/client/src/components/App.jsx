@@ -34,7 +34,11 @@ class App extends React.Component {
     axios.post('/attendees', attendee)
       .then(() => {
         this.getAttendees();
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log('error on client side')
+      })
   }
 
   render() {

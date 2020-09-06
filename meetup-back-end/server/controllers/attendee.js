@@ -12,21 +12,17 @@ exports.getAll = (callback) => {
     }
   });
 };
-// exports.getAll = (req, res) => {
-//   // your code here
-//   Attendee.find({}, (err, dataInfo) => {
-//     if (err) {
-//       console.log('error getting db');
-//       res.status(500);
-//     } else {
-//       console.log('success getting db!');
-//       res.status(200).send(dataInfo)
-//     }
-//   });
-// };
+
 
 exports.add = (req, res) => {
   // your code here
+  Attendee.insertMany(req.body, (err, result) => {
+    if (err) {
+      console.log('error posting db');
+    } else {
+      console.log('success posting db!', result);
+    }
+  })
 };
 
 // module.exports.

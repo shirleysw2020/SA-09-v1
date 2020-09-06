@@ -1,7 +1,7 @@
 // this file is for generating fakers and inserting into database
 const mongoose = require('mongoose');
 
-const Model = require('./Attendee.js');
+const Model = require('./Attendee');
 
 const attendees = [];
 const tshirtSizes = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];

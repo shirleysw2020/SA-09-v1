@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const db = require('./controllers/attendee');
+const db = require('./controllers/attendee.js');
 
 const app = express();
 app.use(morgan('dev'));
@@ -22,17 +22,8 @@ app.get('/attendees', (req, res) => {
   });
 });
 
-// app.post('/attendees', (req, res) => {
-//   db.add(addThisInfo, (err, info) => {
-//     if (err) {
-//       console.log('server failed to add data');
-//       callback(err, null);
-//     } else {
-//       consoel.log('server added data!');
-//       res.status(201).send()
-//     }
-//   })
-// });
+app.post('/attendees', db.add);
+
 
 const PORT = process.env.PORT || 3030;
 
